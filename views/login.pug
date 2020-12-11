@@ -1,0 +1,33 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width= , initial-scale=1.0')
+  title Login
+  style 
+    include Style.css
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"' rel='stylesheet')
+#start  
+nav
+  ul
+    li
+      a(href='/#start') About us
+    li
+      a(href='/#bottom') Search
+    .header_right
+        li 
+            a(href="/login") Login
+        li 
+            a(href="/register") Register
+header
+  .bg
+    .login
+        h1 Login
+
+        #login_form
+            form(action='/login_action' method='get')
+                input(type='search' placeholder='Login' name="login")
+                input(type='password' placeholder='Password' name="password")
+                input(type='submit' value='Log in')
+      

@@ -1,0 +1,59 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width= , initial-scale=1.0')
+  title My cabinet
+  style 
+    include Style.css
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"' rel='stylesheet')
+  script
+    include app.js
+#start  
+nav
+  ul
+    li
+      a(href='/#start') About us
+    li
+      a(href='/#bottom') Search
+    .header_right
+       
+        li 
+            a#cab(href="/login") Login
+        li 
+            a#logout(href="/register") Register
+header
+    .cab
+        .cab_inner
+            .cab1_float_left
+                .cab1_inner
+                    h2 Books you like:  #{count}
+                    
+                    .cab1_books 
+
+                      each val in books
+                        .cab1_book
+                          h2= val[0] 
+                          .book_left
+                         
+                            p Author
+                            p Date
+                            p.pibl Publisher
+
+                          .book_right
+                            
+                            p= val[1]
+                            p= val[4]
+                            p= val[5]
+
+                            
+            .cab2_float_right
+                .cab2_inner
+                    h2 Add favourite book
+
+                    form(action='/add' method='get')
+                      input(type='text' placeholder='Title of book' name="title" required)
+                      input(type='text' placeholder='Author of book' name="author" required) 
+                      input(type='text' placeholder='Book release date, exmp(01.01.2020)' name="date" required)
+                      input#submit_inp(type='submit' value="Add book" name="submit")

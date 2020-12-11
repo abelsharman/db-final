@@ -1,0 +1,112 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width= , initial-scale=1.0')
+  title Main page
+  style 
+    include Style.css
+ 
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"' rel='stylesheet')
+  script(src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js")
+  script(src="https://unpkg.com/vuejs-datepicker")
+  script(src="https://unpkg.com/vue")
+
+  script
+    include app.js
+#start  
+nav
+  ul
+    li
+      a(href='/#start') About us
+    li
+      a(href='/#bottom') Search
+    .header_right
+       
+      
+
+        li 
+            a#cab(href="/login") Login
+        li 
+            a#logout(href="/register") Register
+header
+  .bg
+    .content
+      .kolom
+        .atas
+            - var img = '../../static/img/icon/11.png'
+            img(src=img)
+   
+        .tengah
+          h2 We know what you want
+        .bawah
+          p
+            | We have an excellent book search engine where everyone can find what they want at the moment. 
+      .kolom
+        .atas
+            - var im1 = '../../static/img/icon/2.png'
+            img(src=im1)
+        .tengah
+          h2 We have a rating of books
+        .bawah
+          p
+            | The 21st century is a dynamic time, where you have to constantly evolve and here you have to run to stand still. Anyone who does not read good books has no advantage over someone who does not know how to read them.
+      .kolom
+        .atas
+            - var img2 = '../../static/img/icon/33.png'
+            img(src=img2)
+        .tengah
+          h2 Tracking progress
+        .bawah
+          p
+            | You can add already read books and see your progress and write a small review for yourself
+#bottom
+footer
+  .bgf
+    .contentf
+      if rating
+        h1 The most rating books 
+        .rating
+          if rating
+            each val in rating  
+              .val 
+                .val_inner
+                  h3= val[0]
+                  p= val[1]
+                  p= val[2]
+
+        
+
+
+      .search
+        #app
+          form(action='/search' method='get')
+
+            input#tit(type='text' name="title" placeholder='Search by title')
+
+            input#inp(type="text", name="author" placeholder="Search by author")
+
+            select(name="option")
+              option(value="1") Sort by rating
+              option(value="2") From oldest to newest
+              option(value="3") From newest to oldest
+              option(value="4") Short read
+
+
+            input#sea(type="submit", value="Search")
+  
+        .col_outer
+          if list1
+            each val in list1
+              .col 
+                .col_inner
+                  h2= val.title
+                  p Author is #{val.author}
+                  p Rating is #{val.average_rating}/5
+                  p Number of page is #{val.num_page}
+                
+     
+
+
+      
